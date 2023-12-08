@@ -2,13 +2,13 @@ package com.xiyuan.project.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiyuan.project.model.dto.user.UserQueryRequest;
 import com.xiyuan.project.model.entity.User;
 import com.xiyuan.project.model.vo.LoginUserVO;
 import com.xiyuan.project.model.vo.UserVO;
-import com.xiyuan.project.model.dto.user.UserQueryRequest;
 
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 用户服务

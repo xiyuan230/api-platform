@@ -1,7 +1,5 @@
 package com.xiyuan.project.model.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.xiyuan.project.common.PageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

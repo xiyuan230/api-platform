@@ -1,9 +1,6 @@
 package com.xiyuan.project.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xiyuan.project.model.entity.User;
-import com.xiyuan.project.model.vo.LoginUserVO;
-import com.xiyuan.project.model.vo.UserVO;
 import com.xiyuan.project.annotation.AuthCheck;
 import com.xiyuan.project.common.BaseResponse;
 import com.xiyuan.project.common.DeleteRequest;
@@ -12,25 +9,19 @@ import com.xiyuan.project.common.ResultUtils;
 import com.xiyuan.project.constant.UserConstant;
 import com.xiyuan.project.exception.BusinessException;
 import com.xiyuan.project.exception.ThrowUtils;
-import com.xiyuan.project.model.dto.user.UserAddRequest;
-import com.xiyuan.project.model.dto.user.UserLoginRequest;
-import com.xiyuan.project.model.dto.user.UserQueryRequest;
-import com.xiyuan.project.model.dto.user.UserRegisterRequest;
-import com.xiyuan.project.model.dto.user.UserEditRequest;
-import com.xiyuan.project.model.dto.user.UserUpdateRequest;
+import com.xiyuan.project.model.dto.user.*;
+import com.xiyuan.project.model.entity.User;
+import com.xiyuan.project.model.vo.LoginUserVO;
+import com.xiyuan.project.model.vo.UserVO;
 import com.xiyuan.project.service.UserService;
-import java.util.List;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 用户接口

@@ -1,11 +1,9 @@
 package com.xiyuan.project.model.vo;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.Data;
 
 /**
  * 用户视图（脱敏）
