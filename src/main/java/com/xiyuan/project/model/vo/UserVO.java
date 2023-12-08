@@ -2,6 +2,9 @@ package com.xiyuan.project.model.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 /**
@@ -11,7 +14,6 @@ import lombok.Data;
  */
 @Data
 public class UserVO implements Serializable {
-
     /**
      * id
      */
@@ -23,17 +25,22 @@ public class UserVO implements Serializable {
     private String userName;
 
     /**
+     * 账号
+     */
+    private String userAccount;
+
+    /**
      * 用户头像
      */
     private String userAvatar;
 
     /**
-     * 用户简介
+     * 性别
      */
-    private String userProfile;
+    private Integer gender;
 
     /**
-     * 用户角色：user/admin/ban
+     * 用户角色：user / admin
      */
     private String userRole;
 
@@ -41,6 +48,7 @@ public class UserVO implements Serializable {
      * 创建时间
      */
     private Date createTime;
+
 
     private static final long serialVersionUID = 1L;
 }
