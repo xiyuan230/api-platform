@@ -133,7 +133,7 @@ public class InterfaceInfoController {
         if (interfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVO(interfaceInfo, request));
+        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVO(interfaceInfo));
     }
 
     /**
@@ -152,7 +152,7 @@ public class InterfaceInfoController {
         ThrowUtils.throwIf(size > 50, ErrorCode.PARAMS_ERROR);
         Page<InterfaceInfo> interfaceInfoPage = interfaceInfoService.page(new Page<>(current, size),
                 interfaceInfoService.getQueryWrapper(interfaceInfoQueryRequest));
-        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVOPage(interfaceInfoPage, request));
+        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVOPage(interfaceInfoPage));
     }
 
     /**
@@ -176,7 +176,7 @@ public class InterfaceInfoController {
         ThrowUtils.throwIf(size > 20, ErrorCode.PARAMS_ERROR);
         Page<InterfaceInfo> interfaceInfoPage = interfaceInfoService.page(new Page<>(current, size),
                 interfaceInfoService.getQueryWrapper(interfaceInfoQueryRequest));
-        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVOPage(interfaceInfoPage, request));
+        return ResultUtils.success(interfaceInfoService.getInterfaceInfoVOPage(interfaceInfoPage));
     }
 
     /**

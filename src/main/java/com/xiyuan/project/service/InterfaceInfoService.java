@@ -23,14 +23,6 @@ public interface InterfaceInfoService extends IService<InterfaceInfo> {
      * @param add
      */
     void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);
-    /**
-     * 获取接口封装
-     *
-     * @param interfaceInfo
-     * @param request
-     * @return
-     */
-    InterfaceInfoVO getInterfaceInfoVO(InterfaceInfo interfaceInfo, HttpServletRequest request);
 
     /**
      * 获取查询条件
@@ -45,8 +37,14 @@ public interface InterfaceInfoService extends IService<InterfaceInfo> {
      * 分页获取接口封装
      *
      * @param interfaceInfoPage
-     * @param request
      * @return
      */
-    Page<InterfaceInfoVO> getInterfaceInfoVOPage(Page<InterfaceInfo> interfaceInfoPage, HttpServletRequest request);
+    Page<InterfaceInfoVO> getInterfaceInfoVOPage(Page<InterfaceInfo> interfaceInfoPage);
+    /**
+     * 获取接口封装
+     *
+     * @param interfaceInfo
+     * @return
+     */
+    InterfaceInfoVO getInterfaceInfoVO(InterfaceInfo interfaceInfo);
 }

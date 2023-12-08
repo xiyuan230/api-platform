@@ -1,6 +1,7 @@
 package com.xiyuan.project.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xiyuan.project.common.ErrorCode;
@@ -18,6 +19,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
 * @author xiyuan
@@ -44,12 +47,6 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
         }
     }
 
-    @Override
-    public InterfaceInfoVO getInterfaceInfoVO(InterfaceInfo interfaceInfo, HttpServletRequest request) {
-        InterfaceInfoVO interfaceInfoVO = new InterfaceInfoVO();
-        BeanUtils.copyProperties(interfaceInfo,interfaceInfoVO);
-        return interfaceInfoVO;
-    }
 
     @Override
     public QueryWrapper<InterfaceInfo> getQueryWrapper(InterfaceInfoQueryRequest interfaceInfoQueryRequest) {
@@ -76,8 +73,22 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
     }
 
     @Override
-    public Page<InterfaceInfoVO> getInterfaceInfoVOPage(Page<InterfaceInfo> interfaceInfoPage, HttpServletRequest request) {
-        return null;
+    public Page<InterfaceInfoVO> getInterfaceInfoVOPage(Page<InterfaceInfo> interfaceInfoPage) {
+        Page<InterfaceInfoVO> interfaceInfoVOPage = new Page<>();
+        if (CollectionUtils.isEmpty(interfaceInfoPage.getRecords())) {
+            return interfaceInfoVOPage;
+        }
+        List<InterfaceInfoVO> collect = interfaceInfoPage.getRecords().stream().map(this::getInterfaceInfoVO).collect(Collectors.toList());
+        interfaceInfoVOPage.setRecords(collect);
+        return interfaceInfoVOPage;
+    }
+
+
+    @Override
+    public InterfaceInfoVO getInterfaceInfoVO(InterfaceInfo interfaceInfo) {
+        InterfaceInfoVO interfaceInfoVO = new InterfaceInfoVO();
+        BeanUtils.copyProperties(interfaceInfo,interfaceInfoVO);
+        return interfaceInfoVO;
     }
 }
 
