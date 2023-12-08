@@ -16,7 +16,7 @@ import com.xiyuan.project.model.dto.user.UserAddRequest;
 import com.xiyuan.project.model.dto.user.UserLoginRequest;
 import com.xiyuan.project.model.dto.user.UserQueryRequest;
 import com.xiyuan.project.model.dto.user.UserRegisterRequest;
-import com.xiyuan.project.model.dto.user.UserUpdateMyRequest;
+import com.xiyuan.project.model.dto.user.UserEditRequest;
 import com.xiyuan.project.model.dto.user.UserUpdateRequest;
 import com.xiyuan.project.service.UserService;
 import java.util.List;
@@ -158,7 +158,7 @@ public class UserController {
     }
 
     /**
-     * 更新用户
+     * 更新用户(仅管理员)
      *
      * @param userUpdateRequest
      * @param request
@@ -256,14 +256,14 @@ public class UserController {
     // endregion
 
     /**
-     * 更新个人信息
+     * 更新个人信息（用户）
      *
      * @param userUpdateMyRequest
      * @param request
      * @return
      */
-    @PostMapping("/update/my")
-    public BaseResponse<Boolean> updateMyUser(@RequestBody UserUpdateMyRequest userUpdateMyRequest,
+    @PostMapping("/edit")
+    public BaseResponse<Boolean> updateMyUser(@RequestBody UserEditRequest userUpdateMyRequest,
             HttpServletRequest request) {
         if (userUpdateMyRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
